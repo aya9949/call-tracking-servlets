@@ -4,7 +4,7 @@
 
 # Call Tracking on Java Servlets
 
-[![Build Status](https://travis-ci.org/TwilioDevEd/call-tracking-servlets.svg)](https://travis-ci.org/TwilioDevEd/call-tracking-servlets)
+[![Java Servlet CI](https://github.com/TwilioDevEd/call-tracking-servlets/actions/workflows/gradle.yml/badge.svg)](https://github.com/TwilioDevEd/call-tracking-servlets/actions/workflows/gradle.yml)
 
 Use Twilio to track the effectiveness of your different marketing campaigns.
 Learn how call tracking helps organizations in [these Twilio customer
