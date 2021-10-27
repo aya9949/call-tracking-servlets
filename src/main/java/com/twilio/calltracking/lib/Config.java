@@ -1,20 +1,28 @@
 package com.twilio.calltracking.lib;
 
+import io.github.cdimascio.dotenv.Dotenv;
+
 public final class Config {
+
+    private static Dotenv dotenv = Dotenv.load();
 
     private Config() {
         // Prevent instantiation.
     }
 
     public static String getAccountSid() {
-        return System.getenv("TWILIO_ACCOUNT_SID");
+        return dotenv.get("TWILIO_ACCOUNT_SID");
     }
 
     public static String getAuthToken() {
-        return System.getenv("TWILIO_AUTH_TOKEN");
+        return dotenv.get("TWILIO_AUTH_TOKEN");
     }
 
     public static String getTwimlApplicationSid() {
-        return System.getenv("TWILIO_APP_SID");
+        return dotenv.get("TWILIO_APP_SID");
+    }
+
+    public static Dotenv getDotenv() {
+        return dotenv;
     }
 }
