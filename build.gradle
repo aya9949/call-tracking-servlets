@@ -11,6 +11,7 @@ plugins {
     id 'checkstyle'
     id 'org.flywaydb.flyway' version '4.0.3'
     id 'org.akhikhl.gretty' version '1.2.4'
+    id 'co.uzzu.dotenv.gradle' version '1.2.0'
 }
 
 checkstyle {
@@ -42,6 +43,7 @@ dependencies {
     compile 'org.postgresql:postgresql:9.4-1206-jdbc42'
     compile 'kr.pe.kwonnam.jsp:jsp-template-inheritance:0.3.RELEASE'
     compile 'com.twilio.sdk:twilio:7.17.0'
+    compile 'io.github.cdimascio:dotenv-java:2.2.0'
 
     gretty 'ch.qos.logback:logback-classic:1.2.2'
     gretty 'ch.qos.logback:logback-access:1.2.2'
@@ -55,9 +57,9 @@ dependencies {
 }
 
 flyway {
-    user = "$System.env.DB_USERNAME"
-    password = "$System.env.DB_PASSWORD"
-    url = "$System.env.JDBC_URL"
+    user = env.DB_USERNAME.value
+    password = env.DB_PASSWORD.value
+    url = env.JDBC_URL.value
 }
 
 //Change context path (base url). otherwise defaults to name of project

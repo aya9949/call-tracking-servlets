@@ -27,21 +27,41 @@ this app.
 
 You can learn more about TwiML apps [here](https://www.twilio.com/help/faq/twilio-client/how-do-i-create-a-twiml-app).
 
+## Set up
+
+### Requirements
+
+- [Java Development Kit](https://adoptopenjdk.net/) version 8
+- [PostgreSQL](https://www.postgresql.org/)
+- A Twilio account - [sign up](https://www.twilio.com/try-twilio)
+
+### Twilio Account Settings
+
+This application should give you a ready-made starting point for writing your
+own appointment reminder application. Before we begin, we need to collect
+all the config values we need to run the application:
+
+| Config Value | Description                                                                                                                                                  |
+| :---------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Account Sid  | Your primary Twilio account identifier - find this [in the Console](https://www.twilio.com/console).                                                         |
+| Auth Token   | Used to authenticate - [just like the above, you'll find this here](https://www.twilio.com/console).                                                         |
+| Phone number | A Twilio phone number in [E.164 format](https://en.wikipedia.org/wiki/E.164) - you can [get one here](https://www.twilio.com/console/phone-numbers/incoming) |
+
 ### Local development
 
-This project is build using [Java 8](http://www.oracle.com/technetwork/java/javase/overview/java8-2100321.html).
+After the above requirements have been met:
 
 1. Clone this repository and `cd` into its directory:
 
    ```bash
-   $ git clone git@github.com:TwilioDevEd/call-tracking-servlets.git
-   $ cd call-tracking-servlets
+   git clone git@github.com:TwilioDevEd/call-tracking-servlets.git
+   cd call-tracking-servlets
    ```
 
 1. Create the database.
 
    ```bash
-   $ createdb call-tracking-servlets
+   createdb call-tracking-servlets
    ```
 
    _The application uses PostgreSQL as the persistence layer. If you
@@ -51,25 +71,20 @@ This project is build using [Java 8](http://www.oracle.com/technetwork/java/java
 1. Copy the sample configuration file and edit it to match your configuration.
 
    ```bash
-   $ cp .env.example .env
+   cp .env.example .env
    ```
-
-   You can find your `TWILIO_ACCOUNT_SID` and `TWILIO_AUTH_TOKEN` in your
-   [Twilio Account Settings](https://www.twilio.com/user/account/settings).
-   You will also need a `TWILIO_NUMBER`, which you may find [here](https://www.twilio.com/user/account/phone-numbers/incoming).
-
-   Run `source .env` to export the environment variables.
+   See [Twilio Account Settings](#twilio-account-settings) to locate the necessary environment variables.
 
 1. Execute the migrations.
 
    ```bash
-   $ ./gradlew flywayMigrate
+   ./gradlew flywayMigrate
    ```
 
 1. Run the application.
 
    ```bash
-   $ ./gradlew appRun
+   ./gradlew appRun
    ```
 
 1. Check it out at [http://localhost:8080](http://localhost:8080)
